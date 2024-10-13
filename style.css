@@ -1,12 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
 
 :root{
-    --cor-beige: #fff4ea;
-    --marrom: #372a28;
-    --marrom-dark: #211614;
-    --preto: #000000;
+    --claro: #E4F2EE;
+    --azul2: #CCD9D5;
+    --Vinho: #732626;
+    --azulDark: #283040;
+    --dark: #1D2126;
     --fontPrincipal:'Afacad Flux', sans-serif;
 }
+.fade-inx {
+    opacity: 0;
+    transform: translatex(50%);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.fade-iny{
+    opacity: 0;
+    transform: translatey(50%);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-inx.visible, .fade-iny.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+@keyframes pulsar {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.pulsar {
+    animation: pulsar 5s infinite;
+}    
 
 body{
     margin: 0;
@@ -22,27 +52,34 @@ nav{
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #000000;
+    background-color: var(--dark);
     color: white;
     padding: 1rem;
     text-align: center;
     z-index: 1000;
 }
-
 nav a{
     margin: 10px 20px;
+    padding: 5px;
     font-size: 20px;
     text-decoration: none;
-    color: var(--cor-beige);
+    color: var(--claro);
+    transition: box-shadow 0.2s ease-in-out;
 }
-
+nav a:hover{
+    color: white;
+    background-color: rgba(115, 38, 38, 0.1);
+    border-radius: 5%;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(145, 145, 142, 0.8), 0 0 20px rgba(148, 148, 146, 0.6); 
+}
 .page1{
     display: flex;
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
     height: 100vh; 
-    background: linear-gradient(to top, var(--cor-beige), var(--preto) );
+    background: linear-gradient(to top, var(--azul2), var(--azulDark) );
 }
 
 .page1 div {
@@ -52,17 +89,17 @@ nav a{
 .page1 div h1{
     font-size: 100px;
     margin: 0;
-    color: var(--cor-beige);
+    color: var(--claro);
 }
 .page1 div h2{
     font-size: 50px;
     margin-bottom: 10px;
-    color: var(--cor-beige);
+    color: var(--azul2);
 }
 .page1 div p{
     font-size: 30px;
     margin: 0;
-    color: var(--marrom-dark);
+    color: var(--Vinho);
 }
 .page1 div a img{
     width: 120px;
@@ -72,16 +109,33 @@ nav a{
     width: 80px;
     padding-bottom: 20px;
 }
-.page1 .imagemPincipal img{
-    width: 800px;
+.glow-effect-imagemPripal {
+    background: var(--azulDark);
+    border-radius: 500px;
+    filter: blur(100px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; /* Certifique-se que a altura cobre toda a imagem */
+    z-index: 0;
 }
+.page1 .imagemPincipal{
+    position: relative;
+}
+.page1 .imagemPincipal img{
+    width: 500px;
+    position: relative;
+    z-index: 1;
+}
+
 
 .page2{
     display: flex;
     justify-content: center;
     margin: auto;
     flex-direction: column;
-    background-color: var(--cor-beige);
+    background-color: var(--azul2);
     height: 98vh;
     padding-top: 100px;
 }
@@ -114,7 +168,7 @@ nav a{
     width: 80%;
 }
 .page2  img{
-    width: 20%;
+    width: 15%;
 }
 
 .page3{
@@ -122,60 +176,89 @@ nav a{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to top, var(--marrom), var(--cor-beige) );
-    padding-top: 15px;
-}
-.page3 div h2{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 50px;
+    height: 100%;
+    background: linear-gradient(to top, var(--claro), var(--azul2) );
+    padding-top: 100px;
 }
 .page3 .projetos-container{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+    justify-content: space-around;
     flex-wrap: wrap;
-    width: 70%;
+    width: 80%;
+    margin-bottom: 20px;
 }
 .page3 .projeto{
-    padding: 0px;
-    width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    width: 30%;
+    margin: 20px;
+    background-color: var(--azul2);
+    border-radius: 20px;
+    padding: 20px 20px 0px 20px;
+
 }
-.page3 .projeto p{
-    font-size: 20px;
-    background-color: var(--cor-beige);
-    color: var(--marrom-dark);
-    border-radius: 0px 0px 5px 5px;
-    margin-top: 0;
-    width: 50%;
+.page3 h2{
+    font-size: 50px;
+}
+.page3 p{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--dark);
     padding-left: 10px;
-    font-weight: bolder;
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0px;
+    margin-top: 0;
 }
-.page3 .projeto img{
+.page3 img{
     width: 100%;
-       
+    height: 50%;
 }
-.page3 .projeto a{
-    width: 50%;
-    background-color: var(--cor-beige);
-    padding: 5px 5px 0px 5px;
-    border-radius: 5px 5px 0px 0px;
+.page3 span{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.page3 a{
+    text-decoration: none;
+    color: var(--claro);
+    background-color: var(--azulDark);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: transform 0.2s;
+}
+.page3 a:hover{
+    transform: scale(1.1);
+    border-radius: 0;
+    color: white;
+}
+.page3 .icons-container{
+    margin-top: 10px;
+    justify-content: space-evenly;
+}
+.page3 .icons{
+    width: 45px;
+    height: 45px;
+}
+.page3 .icons:hover{
+    transform: scale(1.2);
 }
 
 .page4{
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
-    background: linear-gradient(to top, var(--preto), var(--marrom) );
-    height: 100vh;
+    background-color: var(--claro);
     padding-top: 100px;
+    height: 90vh;
 }
 .page4 div h2{
     display: flex;
@@ -219,14 +302,7 @@ nav a{
     padding-top: 30px;
     margin: auto;
 }
-.page4 .Studying img:nth-of-type(1){
-    transform: scale(1.6);
-    padding-bottom: 20px;
+.page4 img:hover{
+    transform: scale(1.2);
 }
-.page4 .Studying img:nth-of-type(3){
-    padding-bottom: 20px;
-}
-.page4 .Learned img:nth-of-type(3){
-    transform: scale(1.3);
-    padding-bottom: 15px;
-}
+
