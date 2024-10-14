@@ -351,7 +351,7 @@ nav a:hover{
     margin: 0;
     font-size: 18px;
 }
-.page5 a:hover{
+.page5 img:hover{
     transform: scale(1.2);
 }
 
