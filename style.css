@@ -378,6 +378,9 @@ nav a:hover{
         transform: translatey(20%);
         transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
+    nav{
+        padding: 20px 0px;
+    }
     .page1 div {
         display: flex;
         padding: 10px;
