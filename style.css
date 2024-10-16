@@ -358,7 +358,13 @@ nav a:hover{
 @media (max-width: 1750px){
     .page1 .imagemPincipal{
         display: none;
-        
+    }
+    .page1 div {
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
     }
 }
 @media (max-width: 1600px){
@@ -372,6 +378,13 @@ nav a:hover{
         transform: translatey(20%);
         transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
+    .page1 div {
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 @media (max-width: 1000px){
     .fade-inx {
@@ -383,6 +396,9 @@ nav a:hover{
         opacity: 0;
         transform: translatey(10%);
         transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .page2, .page3, .page4, .page5{
+        padding-top: 50px;
     }
     .page4 .Studying h3{
         font-size: 30px;
@@ -417,3 +433,12 @@ nav a:hover{
         flex-direction: column;
     }
 }
+@media (max-width: 500px){
+    .page4 .Studying {
+        flex-direction: column;
+    }
+    .page4 .Learned {
+        flex-direction: column;
+    }
+}
+
